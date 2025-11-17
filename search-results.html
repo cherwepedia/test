@@ -1,0 +1,20 @@
+---
+layout: default
+title: Результаты поиска
+---
+
+<div class="search-results-page">
+  <h1>Результаты поиска</h1>
+  <p class="search-query">Поиск: <span id="query-text"></span></p>
+  <p class="results-count" id="results-count"></p>
+
+  <div class="articles-grid" id="search-results-grid">
+    <!-- Results will be inserted here by JavaScript -->
+  </div>
+
+  <div id="no-results" style="display: none;">
+    <p style="text-align: center; color: var(--text-secondary); padding: 3rem;">
+      Ничего не найдено. Попробуйте изменить запрос.
+    </p>
+  </div>
+</div>

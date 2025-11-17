@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<article class="post-article">
+  <div class="post-container">
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    <div class="post-content-wrapper">
+      {% if page.infobox %}
+      <aside class="infobox">
+        {% if page.image %}
+        <div class="infobox-image">
+          <img src="{{ page.image }}" alt="{{ page.title }}">
+        </div>
+        {% endif %}
+
+        <table class="infobox-table">
+          {% for item in page.infobox %}
+          <tr>
+            <th>{{ item.label }}</th>
+            <td>{{ item.value }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </aside>
+      {% endif %}
+
+      <div class="post-text">
+        {{ content }}
+
+        {% if page.gallery %}
+        <h2>Галерея</h2>
+        <div class="gallery-grid">
+          {% for img in page.gallery %}
+          <div class="gallery-item">
+            <img src="{{ img }}" alt="Галерея {{ page.title }}" class="gallery-thumbnail">
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if page.categories %}
+        <div class="post-categories">
+          <strong>Категории:</strong>
+          {% for category in page.categories %}
+          <a href="{{ '/categories#' | append: category | relative_url }}" class="category-tag">{{ category }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Gallery Modal -->
+<div id="gallery-modal" class="gallery-modal">
+  <span class="gallery-close">&times;</span>
+  <img class="gallery-modal-content" id="gallery-modal-img">
+</div>

@@ -1,0 +1,32 @@
+title: Червепедия
+description: Энциклопедия черветреда
+baseurl: ""
+url: ""
+
+# Categories configuration
+categories:
+  - name: Черветред
+    slug: chervetred
+  - name: Пасты
+    slug: pasty
+  - name: Русофобия
+    slug: rusofobiya
+  - name: Люди
+    slug: people    
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:title/
+
+# Build settings
+markdown: kramdown
+permalink: /:title/
+
+# Exclude files
+exclude:
+  - .same/
+  - README.md
+  - Gemfile
+  - Gemfile.lock

@@ -1,0 +1,31 @@
+---
+layout: default
+title: Главная
+---
+
+<div class="homepage">
+  <div class="homepage-hero">
+    <h1>Червепедия</h1>
+    <p class="hero-description">Энциклопедия черветреда</p>
+  </div>
+
+  <div class="articles-grid">
+    {% assign shuffled_posts = site.posts | sample: 12 %}
+    {% for post in site.posts limit:12 %}
+    <a href="{{ post.url | relative_url }}" class="article-card" data-image="{{ post.image }}">
+      <div class="card-background" {% if post.image %}style="background-image: url('{{ post.image }}')"{% endif %}></div>
+      <div class="card-content">
+        <h3 class="card-title">{{ post.title }}</h3>
+        <p class="card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        {% if post.categories %}
+        <div class="card-categories">
+          {% for category in post.categories %}
+          <span class="category-tag" onclick="event.preventDefault(); window.location.href='{{ '/categories#' | append: category | relative_url }}'">{{ category }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</div>
